@@ -13,7 +13,7 @@ import random
 bot = Bot(token="7992135782:AAFliEUv_5ctfv0iSidq4vIL3nLtEP3WLSI")
 storage = MemoryStorage()
 dp = Dispatcher(storage=storage)
-file_ids = [f'README_md/read{i}.jpg' for i in range(1, 8)]
+file_ids = [f'README_md/read{i}.jpg' for i in range(1, 13)]
 def from_frase_to_number(word):
     word = list(word)
     word = list(filter(lambda x: x in '1234567890', word))
