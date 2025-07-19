@@ -53,10 +53,10 @@ async def allbak_handle(callback: types.CallbackQuery, state: FSMContext):
     data = callback.data
     if data == "retry_waiting_for_phone":
         await state.set_state(Auth.waiting_for_phone)
-        await callback.message.edit_caption("Введите номер телефона")
+        await callback.message.edit_caption(caption="Введите номер телефона")
     elif data == 'authtorization':
         user_data = await state.get_data()
-        await callback.message.edit_caption(f'Проверьте корректность номера телефона:\n{user_data['phone']}')
+        await callback.message.edit_caption(caption=f'Проверьте корректность номера телефона:\n{user_data['phone']}')
 
         await state.set_state(Auth.confirming_phone)
         workbook = load_workbook("База ДД (1).xlsx")
@@ -84,10 +84,10 @@ async def allbak_handle(callback: types.CallbackQuery, state: FSMContext):
 
     elif data == "retry_waiting_for_fio":
         await state.set_state(Auth.waiting_for_fio)
-        await callback.message.edit_caption("Введите ваше ФИО")
+        await callback.message.edit_caption(caption="Введите ваше ФИО")
     elif data == 'podtverzdenie':
         user_data = await state.get_data()
-        await callback.message.edit_caption(f'Проверьте корректность Вашего ФИО:\n{user_data['phone']}')
+        await callback.message.edit_caption(caption=f'Проверьте корректность Вашего ФИО:\n{user_data['phone']}')
 
         #await state.set_state(Auth.confirming_fio)
         workbook = load_workbook("База ДД (1).xlsx")
